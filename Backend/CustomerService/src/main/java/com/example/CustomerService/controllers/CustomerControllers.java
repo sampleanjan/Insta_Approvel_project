@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,10 @@ import com.example.CustomerService.models.Customer;
 import com.example.CustomerService.service.CustomerService;
 
 @RestController
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/customer")
+
 public class CustomerControllers {
 
 	@Autowired
@@ -29,7 +33,7 @@ public class CustomerControllers {
 	public ResponseEntity<List<Customer>> getAllCustomers() {
 		List<Customer> users = customerService.getAllCustomers();
 		return ResponseEntity.ok(users);
-	}
+	} 
 
 	@PostMapping("/register")
 	public ResponseEntity<Customer> register(@RequestBody Customer customer) {
@@ -48,13 +52,10 @@ public class CustomerControllers {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Customer> getUserById(@PathVariable Long id) {
-		Customer user = customerService.getCustomerById(id);
-		return user != null ? ResponseEntity.ok(user) : ResponseEntity.notFound().build();
+	public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
+		Customer customer = customerService.getCustomerById(id);
+		return customer != null ? ResponseEntity.ok(customer) : ResponseEntity.notFound().build();
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Customer> updateUser(@PathVariable Long id, @RequestBody Customer customerDetails) {
-		return ResponseEntity.ok(customerService.updateUser(id, customerDetails));
-	}
+	
 }

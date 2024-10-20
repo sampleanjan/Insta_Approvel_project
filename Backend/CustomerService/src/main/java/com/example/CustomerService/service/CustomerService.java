@@ -30,12 +30,5 @@ public class CustomerService {
 		return customerRepository.findById(id).orElse(null);
 	}
 
-	public Customer updateUser(Long id, Customer customerDetails) {
-		Customer user = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-		user.setFirstName(customerDetails.getFirstName());
-		user.setLastName(customerDetails.getLastName());
-		user.setPassword(customerDetails.getPassword());
-		user.setLoanIds(customerDetails.getLoanIds());
-		return customerRepository.save(user);
-	}
+	
 }
