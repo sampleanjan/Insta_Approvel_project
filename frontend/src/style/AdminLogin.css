@@ -1,19 +1,15 @@
 .login-container {
   width: 100%;
-  max-width: 400px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   background-color: #f4f4f4;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   font-family: 'Arial', sans-serif;
   margin: 0 auto; 
-}
-
-.center-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; 
 }
 
 h2 {
@@ -40,7 +36,7 @@ h2 {
   border-radius: 4px;
   box-sizing: border-box;
 }
-#name {background-color: black;}
+
 
 button {
   width: 100%;

@@ -28,7 +28,7 @@ public class DashboardService {
 
 		LoanTransaction createdLoan = loanTransactionRepository.save(loanTransaction);
 
-		String customerServiceUrl = "http://localhost:8292/customer/" + customerId + "/addLoanId";
+		String customerServiceUrl = "http://localhost:7007/customer/" + customerId + "/addLoanId";
 		restTemplate.postForObject(customerServiceUrl, createdLoan.getLoanId(), Void.class);
 
 		return createdLoan;

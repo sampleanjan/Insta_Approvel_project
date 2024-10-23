@@ -1,40 +1,77 @@
+/* Registration Container */
 .registration-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.registration-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.registration-form form {
+  background-color: #fff;
+  padding: 30px; /* Added extra padding for a cleaner look */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Increased width for better form layout */
+  max-width: 100%;
+}
+
+.registration-form .form-group {
+  margin-bottom: 20px;
+}
+
+.registration-form label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-weight: bold; /* Bold labels for clarity */
+  color: #555;
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 12px; /* Increased padding for a more spacious feel */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.registration-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.registration-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registration-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.registration-form button[type="submit"]:focus {
+  outline: none;
+}
+
+@media (max-width: 400px) {
+  .registration-form form {
+    width: 90%;
   }
-  
-  .registration-form h2 {
-    text-align: center;
-  }
-  
-  .registration-form div {
-    margin-bottom: 15px;
-  }
-  
-  .registration-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .registration-form input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-  
-  .registration-form button {
-    width: 100%;
-    padding: 10px;
-    background-color:black;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  #name{background-color: black;}
-  
-  
+}

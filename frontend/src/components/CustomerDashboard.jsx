@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import "../style/CustomerDashboard.css"; 
 const CustomerDashboard = () => {
   const [loans, setLoans] = useState([]);
   const [loanDetails, setLoanDetails] = useState({
@@ -16,8 +16,8 @@ const CustomerDashboard = () => {
           "http://localhost:8292/dashboard/loans/" +
             localStorage.getItem("customerId")
         );
-        setLoans(response.data); 
-        console.log(loans)
+        setLoans(response.data);
+        console.log(loans);
       } catch (error) {
         console.log(error);
       }
@@ -52,10 +52,10 @@ const CustomerDashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Customer Dashboard</h2>
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">Customer Dashboard</h2>
 
-      <form onSubmit={applyForLoan}>
+      <form className="loan-form" onSubmit={applyForLoan}>
         <label>
           Loan Amount:
           <input
@@ -65,6 +65,7 @@ const CustomerDashboard = () => {
               setLoanDetails({ ...loanDetails, loanAmount: e.target.value })
             }
             required
+            className="form-input"
           />
         </label>
         <label>
@@ -79,6 +80,7 @@ const CustomerDashboard = () => {
               })
             }
             required
+            className="form-input"
           />
         </label>
         <label>
@@ -89,22 +91,24 @@ const CustomerDashboard = () => {
             onChange={(e) =>
               setLoanDetails({ ...loanDetails, reason: e.target.value })
             }
-            style={{ marginRight: "50px" }}
             required
+            className="form-input"
           />
         </label>
-        <button id="name" type="submit">Apply for Loan</button>
+        <button id="name" type="submit" className="submit-button">
+          Apply for Loan
+        </button>
       </form>
 
-      <h3>Your Loans</h3>
-      <div>
+      <h3 className="loans-title">Your Loans</h3>
+      <div className="loan-list">
         {loans
           .filter((loan) => loan.customerId == localStorage.getItem("customerId"))
           .map((loan, index) => (
             <div key={index} className="loan-card">
-              <h4>Loan Description: {loan.loandescription}</h4>
-              <p>Amount: ${loan.loanAmount}</p>
-              <p>Status: {loan.loanStatus}</p>
+              <h4 className="loan-card-title">Loan Description: {loan.loandescription}</h4>
+              <p className="loan-card-detail">Amount: ${loan.loanAmount}</p>
+              <p className="loan-card-detail">Status: {loan.loanStatus}</p>
             </div>
           ))}
       </div>
