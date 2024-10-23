@@ -1,8 +1,8 @@
 package com.example.CustomerService.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +12,9 @@ import com.example.CustomerService.models.Admin;
 import com.example.CustomerService.service.AdminService;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/admin")
 public class AdminControllers {
-
 	@Autowired
 	private AdminService adminService;
 
@@ -24,7 +24,6 @@ public class AdminControllers {
 		String password = admin.getPassword();
 		String token = "Admin-Token";
 		if (adminService.validateAdminCredentials(username, password)) {
-			// Generate token if login is successful
 			return ResponseEntity.ok("Login successful! Token: " + token);
 		} else {
 			return ResponseEntity.status(401).body("Invalid credentials! Access denied.");

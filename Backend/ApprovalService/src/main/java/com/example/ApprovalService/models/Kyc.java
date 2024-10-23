@@ -1,6 +1,5 @@
 package com.example.ApprovalService.models;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +15,6 @@ public class Kyc {
 	private String addressProof;
 	private String idProof;
 
-	// Getters and Setters
 	public Long getId() {
 		return id;
 	}

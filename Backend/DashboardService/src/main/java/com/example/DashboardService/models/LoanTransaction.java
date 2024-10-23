@@ -1,4 +1,4 @@
-package com.example.ApprovalService.models;
+package com.example.DashboardService.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,15 +7,15 @@ import jakarta.persistence.Id;
 
 @Entity
 public class LoanTransaction {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long loanId;
-
+	private Long loanId; 
 	private String loandescription;
 	private int loanAmount;
-	private String loanStatus;
+	private String loanStatus; 
 	private String reason;
-	private Long customerId;
+	private Long customerId; 
 
 	public Long getLoanId() {
 		return loanId;

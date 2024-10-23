@@ -1,7 +1,6 @@
 package com.example.CustomerService.models;
 
 import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,10 +17,10 @@ public class Customer {
 	private String lastName;
 	private String email;
 	private String password;
-	private List<Integer> loanIds;
+	private List<Long> loanIds;
 	private String role;
 
-	public Customer(Long id, String firstName, String lastName, String email, String password, List<Integer> loanIds) {
+	public Customer(Long id, String firstName, String lastName, String email, String password, List<Long> loanIds) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -33,7 +32,7 @@ public class Customer {
 	public Customer() {
 	}
 
-	public Long getId() {	
+	public Long getId() {
 		return id;
 	}
 
@@ -73,11 +72,11 @@ public class Customer {
 		this.password = password;
 	}
 
-	public List<Integer> getLoanIds() {
+	public List<Long> getLoanIds() {
 		return loanIds;
 	}
 
-	public void setLoanIds(List<Integer> loanIds) {
+	public void setLoanIds(List<Long> loanIds) {
 		this.loanIds = loanIds;
 	}
 

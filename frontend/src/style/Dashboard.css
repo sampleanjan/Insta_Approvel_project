@@ -1,0 +1,92 @@
+.dashboard-container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .nav {
+    background-color: #007bff;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .loan-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loan-card h4 {
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+  
+  .loan-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  button.accept {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  button.accept:hover {
+    background-color: #218838;
+  }
+  
+  button.reject {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  button.reject:hover {
+    background-color: #c82333;
+  }
+  
+  @media (max-width: 600px) {
+    .dashboard-container {
+      padding: 10px;
+    }
+  
+    .loan-card {
+      padding: 15px;
+    }
+  
+    .nav a {
+      padding: 0 10px;
+    }
+  }
+  

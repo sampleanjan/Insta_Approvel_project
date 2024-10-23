@@ -4,17 +4,18 @@ import Registration from "./components/Registration";
 import Nav from "./components/Nav";
 import AdminLogin from "./components/AdminLogin";
 import CustomerLogin from "./components/CustomerLogin";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
     <>
-      {/* <Register /> */}
-      <Nav />
       <Router>
+        
         <Routes>
-          <Route path="/" element={<CustomerLogin />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<CustomerLogin />} />
         </Routes>
       </Router>
     </>
