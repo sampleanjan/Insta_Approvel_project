@@ -24,8 +24,8 @@ function Dashboard() {
   const [userType, setUserType] = useState(null);
 
   useEffect(() => {
-    const username = localStorage.getItem("username");
-    if (username === "admin") {
+    const customername = localStorage.getItem("customername");
+    if (customername === "admin") {
       setUserType("admin");
     } else {
       setUserType("customer");

@@ -4,6 +4,14 @@ const AdminDashboard = () => {
   const [loans, setLoans] = useState([]);
 
   useEffect(() => {
+    const fetchLoans = async () => {
+      try {
+        const response = await fetch("http://localhost:8292/dashboard/loans");
+        console.log(response)
+      } catch (error) {
+        
+      }
+    }
     const savedLoans = JSON.parse(localStorage.getItem("loans")) || [];
     setLoans(savedLoans);
   }, []);

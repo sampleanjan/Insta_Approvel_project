@@ -20,7 +20,7 @@ const AdminLogin = () => {
     );
     console.log(response);
     localStorage.setItem("token", response.data.token);
-    localStorage.setItem("username", username);
+    localStorage.setItem("customername", username);
     console.log("Logging in with", username, password, response);
     navigate("/dashboard");
   };

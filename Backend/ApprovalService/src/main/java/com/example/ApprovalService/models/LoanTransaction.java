@@ -1,5 +1,6 @@
 package com.example.ApprovalService.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,10 @@ public class LoanTransaction {
 	private String loandescription;
 	private int loanAmount;
 	private String loanStatus;
+	@Column(name = "reason")
 	private String reason;
+	@Column(name = "kyc")
+	private String kyc;
 	private Long customerId;
 
 	public Long getLoanId() {
@@ -47,6 +51,14 @@ public class LoanTransaction {
 
 	public void setLoanStatus(String loanStatus) {
 		this.loanStatus = loanStatus;
+	}
+
+	public String getKyc() {
+		return kyc;
+	}
+
+	public void setKyc(String kyc) {
+		this.kyc = kyc;
 	}
 
 	public String getReason() {
