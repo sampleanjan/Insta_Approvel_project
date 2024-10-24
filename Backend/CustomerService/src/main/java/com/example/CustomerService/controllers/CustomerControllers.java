@@ -39,7 +39,7 @@ public class CustomerControllers {
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody Customer customer) {
 		Customer user = customerService.findCustomerByEmail(customer.getEmail());
-		if (user != null) {
+		if (user != null&& user.getPassword().equals(customer.getPassword())) {
 			String token = "Customer-Token";
 			Map<String, Object> response = Map.of("token", token, "user", user);
 			return ResponseEntity.ok(response);

@@ -1,26 +1,58 @@
 import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
+import axios from "axios";
+
 const AdminDashboard = () => {
   const [loans, setLoans] = useState([]);
 
   useEffect(() => {
     const fetchLoans = async () => {
       try {
-        const response = await fetch("http://localhost:8292/dashboard/loans");
-        console.log(response)
-      } catch (error) {
-        
-      }
-    }
-    const savedLoans = JSON.parse(localStorage.getItem("loans")) || [];
-    setLoans(savedLoans);
+        const response = await axios.get(
+          "http://localhost:8292/dashboard/loans"
+        );
+        console.log(response);
+        setLoans(response.data);
+      } catch (error) {}
+    };
+    fetchLoans();
   }, []);
-  
-  const handleLoanAction = (index, action) => {
-    const updatedLoans = [...loans];
-    updatedLoans[index].status = action === "accept" ? "Accepted" : "Rejected";
-    setLoans(updatedLoans);
-    localStorage.setItem("loans", JSON.stringify(updatedLoans));
+
+  const handleLoanAction = async (loanId, action, reason) => {
+    try {
+      
+      if (action == "accept") {
+        reason = reason ? reason : "reason not provided"; 
+        console.log(reason);
+        const response = await axios.post(
+          `http://localhost:7008/approval/approve/${loanId}?reason=${reason}`
+        );
+        console.log(response);
+        const updatedLoans = loans.map((loan) => {
+          if (loan.loanId === loanId) {
+            return { ...loan, loanStatus: "Approved" };
+          }
+          return loan;
+        })
+        setLoans(updatedLoans);
+      }
+      if(action == "reject"){
+        reason = reason ? reason : "reason not provided"; 
+        console.log(reason);
+        const response = await axios.post(
+          `http://localhost:7008/approval/reject/${loanId}?reason=${reason}`
+        );
+        console.log(response);
+        const updatedLoans = loans.map((loan) => {
+          if (loan.loanId === loanId) {
+            return { ...loan, loanStatus: "Loan Rejected." };
+          }
+          return loan;
+        })
+        setLoans(updatedLoans);
+      }
+    } catch (error) {}
+    
   };
 
   return (
@@ -31,16 +63,27 @@ const AdminDashboard = () => {
         {loans.length > 0 ? (
           loans.map((loan, index) => (
             <div key={index} className="loan-card">
-              <h4>User: {loan.username}</h4>
-              <p>Loan Type: {loan.loanType}</p>
+              <h4>Customer Id: {loan.customerId}</h4>
+              <p>KYC: {loan.kyc}</p>
+              <p>Description: {loan.loandescription}</p>
+              <p>Loan Reason: {loan.reason}</p>
               <p>Amount: ${loan.loanAmount}</p>
-              <p>Status: {loan.status}</p>
-              {loan.status === "Pending" && (
+              <p>Status: {loan.loanStatus}</p>
+
+              {loan.loanStatus === "Pending" && (
                 <div>
-                  <button onClick={() => handleLoanAction(index, "accept")}>
+                  <button id="name"
+                    onClick={() =>
+                      handleLoanAction(loan.loanId, "accept", loan.reason)
+                    }
+                  >
                     Accept
                   </button>
-                  <button onClick={() => handleLoanAction(index, "reject")}>
+                  <button id="name"
+                    onClick={() =>
+                      handleLoanAction(loan.loanId, "reject", loan.reason)
+                    }
+                  >
                     Reject
                   </button>
                 </div>

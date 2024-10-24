@@ -49,10 +49,6 @@ button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
 button[type="submit"]:focus {
   outline: none;
 }

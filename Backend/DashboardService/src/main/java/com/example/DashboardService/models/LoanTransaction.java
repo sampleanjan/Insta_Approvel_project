@@ -10,16 +10,14 @@ public class LoanTransaction {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long loanId; // Primary key
-
+	private Long loanId;
 	private String loandescription;
 	private int loanAmount;
-	private String loanStatus; // Approved/Rejected
+	private String loanStatus; 
 	private String kyc;
 	private String reason;
-	private Long customerId; // Refers to the Customer table
+	private Long customerId;
 
-	// Getters and Setters
 	public Long getLoanId() {
 		return loanId;
 	}

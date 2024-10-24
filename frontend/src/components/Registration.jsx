@@ -23,6 +23,17 @@ const Registration = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      formData.password !== formData.confirmPassword ||     
+      formData.password.length < 8 ||                       
+      !/[!@ $ &]/.test(formData.password) ||   
+      !/[0-9]/.test(formData.password)                       
+    ) {
+      alert(
+        "Password must be at least 8 characters long, contain at least one number, one special character, and passwords must match. Please try again."
+      );
+    }
+    
     const formattedLoanIds = formData.loanIds.split(",").map((id) => id.trim());
     const customerData = {
       ...formData,
@@ -96,7 +107,7 @@ const Registration = () => {
           <div>
             <label>Password:</label>
             <input
-              type="string"
+              type="password"
               name="password"
               value={formData.password}
               onChange={handleInputChange}
@@ -106,7 +117,7 @@ const Registration = () => {
           <div>
             <label>Confirm Password:</label>
             <input
-              type="string"
+              type="password"
               name="confirmPassword"
               value={formData.confmirmPassword}
               onChange={handleInputChange}
@@ -122,7 +133,7 @@ const Registration = () => {
               value={formData.loanIds}
               onChange={handleInputChange}
               placeholder="e.g. 101, 102, 103"
-              required
+              
             />
           </div>
 

@@ -9,7 +9,7 @@ import com.example.DashboardService.models.LoanTransaction;
 
 @Repository
 public interface LoanTransactionRepository extends JpaRepository<LoanTransaction, Long> {
-	// Find all loan transactions by customerId
+	
 	List<LoanTransaction> findByCustomerId(Long customerId);
 
 	List<LoanTransaction> findAll();

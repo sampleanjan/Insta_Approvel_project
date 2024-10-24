@@ -25,29 +25,19 @@ const CustomerDashboard = () => {
     };
     fetchLoans();
   }, []);
-  const registLoan = async (data, requestType) => {
-    try {
-      if (requestType === "post") {
-      }
-      if (requestType === "put") {
-        return response;
-      }
-    } catch (error) {
-      return error;
-    }
-  };
-
   const applyForLoan = async (e) => {
     e.preventDefault();
-    const username = localStorage.getItem("username") || "default_user";
+   
     try {
       const data = {
         loanAmount: loanDetails.loanAmount,
         loandescription: loanDetails.loandescription,
         loanStatus: "Pending",
+        kyc: "Pending",
         reason: loanDetails.reason,
         customerId: localStorage.getItem("customerId"),
       };
+      console.log(data);
       const response = await axios.post(
         "http://localhost:8292/dashboard/apply",
         data
@@ -56,6 +46,7 @@ const CustomerDashboard = () => {
 
       const newLoan = { ...data, status: "Pending" };
       setLoans([...loans, newLoan]);
+      window.location.reload()
     } catch (error) {
       console.log(error);
     }
@@ -181,7 +172,7 @@ const CustomerDashboard = () => {
                         required
                       />
                     </div>
-                    <button type="submit">Submit KYC</button>
+                    <button id="name" type="submit">Submit KYC</button>
                   </form>
                 </div>
               ) : (

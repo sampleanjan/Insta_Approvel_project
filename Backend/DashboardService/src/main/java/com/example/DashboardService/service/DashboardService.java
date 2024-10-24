@@ -19,10 +19,10 @@ public class DashboardService {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	// Apply for a new loan
+	
 	public LoanTransaction applyForLoan(String loandescription, int loanAmount, Long customerId, String kyc,
 			String reason) {
-		// Step 1: Create a new LoanTransaction
+		
 		LoanTransaction loanTransaction = new LoanTransaction();
 		loanTransaction.setLoandescription(loandescription);
 		loanTransaction.setLoanAmount(loanAmount);
@@ -32,21 +32,19 @@ public class DashboardService {
 		loanTransaction.setCustomerId(customerId);
 
 		LoanTransaction createdLoan = loanTransactionRepository.save(loanTransaction);
-
-		// Step 2: Make a REST call to Customer Service to update the customer's loanIds
+		
 		String customerServiceUrl = "http://localhost:7007/customer/" + customerId + "/addLoanId";
 		restTemplate.postForObject(customerServiceUrl, createdLoan.getLoanId(), Void.class);
 
 		return createdLoan;
 	}
 
-	// Get all loan transactions for a customer by customerId
 	public List<LoanTransaction> getLoansByCustomerId(Long customerId) {
 		return loanTransactionRepository.findByCustomerId(customerId);
 	}
 
 	public List<LoanTransaction> getAllLoans() {
-		// Fetch all loans from the database
+		
 		return loanTransactionRepository.findAll();
 	}
 
@@ -62,7 +60,7 @@ public class DashboardService {
 
 			return loanTransactionRepository.save(existingLoan);
 		} else {
-			return null; // Loan with the given loanId not found
+			return null; 
 		}
 	}
 }

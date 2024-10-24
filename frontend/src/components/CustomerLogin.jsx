@@ -9,6 +9,16 @@ const CustomerLogin = () => {
   const [password, setPassword] = useState("");
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (
+      password.length < 8 ||
+      !/[ @ $ &]/.test(password) ||
+      !/[0-9]/.test(password)
+    ) {
+      alert(
+        "Password must be at least 8 characters long, contain at least one number, one special character"
+      );
+    }
+
     const data = {
       email: email,
       password: password,

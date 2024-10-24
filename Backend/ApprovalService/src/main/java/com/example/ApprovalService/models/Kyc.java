@@ -16,7 +16,6 @@ public class Kyc {
 	private String addressProof;
 	private String idProof;
 
-	// Getters and Setters
 	public Long getId() {
 		return id;
 	}

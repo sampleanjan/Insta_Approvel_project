@@ -1,4 +1,3 @@
-/* Registration Container */
 .registration-form {
   display: flex;
   flex-direction: column;
@@ -17,10 +16,10 @@
 
 .registration-form form {
   background-color: #fff;
-  padding: 30px; /* Added extra padding for a cleaner look */
+  padding: 30px; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 350px; /* Increased width for better form layout */
+  width: 350px; 
   max-width: 100%;
 }
 
@@ -32,13 +31,13 @@
   display: block;
   font-size: 0.9rem;
   margin-bottom: 8px;
-  font-weight: bold; /* Bold labels for clarity */
+  font-weight: bold;
   color: #555;
 }
 
 .registration-form input {
   width: 100%;
-  padding: 12px; /* Increased padding for a more spacious feel */
+  padding: 12px; 
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
@@ -60,10 +59,6 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.registration-form button[type="submit"]:hover {
-  background-color: #0056b3;
 }
 
 .registration-form button[type="submit"]:focus {

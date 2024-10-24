@@ -25,7 +25,6 @@ public class DashboardController {
 	@Autowired
 	private DashboardService dashboardService;
 
-	// API to apply for a new loan directly with LoanTransaction as the request body
 	@PostMapping("/apply")
 	public ResponseEntity<LoanTransaction> applyForLoan(@RequestBody LoanTransaction loanTransaction) {
 		LoanTransaction createdLoan = dashboardService.applyForLoan(loanTransaction.getLoandescription(),
@@ -34,7 +33,6 @@ public class DashboardController {
 		return new ResponseEntity<>(createdLoan, HttpStatus.CREATED);
 	}
 
-	// API to get all loans by customerId
 	@GetMapping("/loans/{customerId}")
 	public List<LoanTransaction> getLoansByCustomerId(@PathVariable Long customerId) {
 		return dashboardService.getLoansByCustomerId(customerId);
