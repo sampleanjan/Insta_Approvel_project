@@ -11,7 +11,6 @@ public class Kyc {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long loanId;
-
 	private Long customerId;
 	private String addressProof;
 	private String idProof;
