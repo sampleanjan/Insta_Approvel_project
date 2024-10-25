@@ -6,7 +6,6 @@ import Nav from "./Nav";
 const Registration = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    customerId: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -40,7 +39,7 @@ const Registration = () => {
       loanIds: formattedLoanIds,
     };
     const data = {
-      id: customerData.customerId,
+      
       firstName: customerData.firstName,
       lastName: customerData.lastName,
       email: customerData.email,
@@ -61,17 +60,7 @@ const Registration = () => {
       <div className="registration-form">
         <h2>Customer Registration</h2>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label>Customer ID:</label>
-            <input
-              type="number"
-              name="customerId"
-              value={formData.customerId}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
+          
           <div>
             <label>First Name:</label>
             <input
@@ -132,8 +121,7 @@ const Registration = () => {
               name="loanIds"
               value={formData.loanIds}
               onChange={handleInputChange}
-              placeholder="e.g. 101, 102, 103"
-              
+              placeholder="e.g. 101, 102, 103"  
             />
           </div>
 

@@ -38,14 +38,3 @@ h2 {
 }
 
 
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-}
-

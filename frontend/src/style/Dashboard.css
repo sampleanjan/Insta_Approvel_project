@@ -58,24 +58,6 @@
     cursor: pointer;
   }
   
-  button.accept {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  button.accept:hover {
-    background-color: #218838;
-  }
-  
-  button.reject {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  button.reject:hover {
-    background-color: #c82333;
-  }
-  
   @media (max-width: 600px) {
     .dashboard-container {
       padding: 10px;

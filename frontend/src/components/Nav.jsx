@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <h1>MyLogo</h1>
+      <img src="https://www.kindpng.com/picc/m/160-1606457_personal-loan-png-transparent-png.png" alt="logo" width="70" height="70"/>
       </div>
       {customername ? (
         <div className="navbar-buttons">

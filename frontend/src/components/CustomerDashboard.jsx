@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios, { toFormData } from "axios";
-import "../style/CustomerDashboard.css"; 
+import "../style/CustomerDashboard.css";
 const CustomerDashboard = () => {
   const [loans, setLoans] = useState([]);
   const [loanDetails, setLoanDetails] = useState({
@@ -14,7 +14,7 @@ const CustomerDashboard = () => {
       try {
         const response = await axios.get(
           "http://localhost:8292/dashboard/loans/" +
-            localStorage.getItem("customerId")
+          localStorage.getItem("customerId")
         );
         console.log(response);
         setLoans(response.data);
@@ -27,7 +27,7 @@ const CustomerDashboard = () => {
   }, []);
   const applyForLoan = async (e) => {
     e.preventDefault();
-   
+
     try {
       const data = {
         loanAmount: loanDetails.loanAmount,
@@ -82,7 +82,7 @@ const CustomerDashboard = () => {
           setLoans(updatedLoans);
         }
       }
-      
+
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +91,7 @@ const CustomerDashboard = () => {
   return (
     <div className="dashboard-container">
       <h2 className="dashboard-title">Customer Dashboard</h2>
-      
+
       <form className="loan-form" onSubmit={applyForLoan}>
         <label>
           Loan Amount:
@@ -157,6 +157,9 @@ const CustomerDashboard = () => {
                         id="idProof"
                         name="idProof"
                         placeholder="Enter ID Proof Card Number"
+                        pattern="\d{12}"
+                        minlength="12"
+                        maxlength="12"
                         required
                       />
                     </div>
@@ -169,6 +172,10 @@ const CustomerDashboard = () => {
                         id="addressProof"
                         name="addressProof"
                         placeholder="Enter Address Proof Card Number"
+                        pattern="[A-Za-z]{2}-\d{12}"
+                        title="Please enter in format: Two letters, dash, and 12 digits "
+                        minlength="12"
+                        maxlength="15"
                         required
                       />
                     </div>
@@ -183,6 +190,6 @@ const CustomerDashboard = () => {
       </div>
     </div>
   );
-};  
+};
 
 export default CustomerDashboard;
